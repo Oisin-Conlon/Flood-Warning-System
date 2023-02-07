@@ -24,7 +24,7 @@ def test_rivers_with_station():
 def test_stations_by_river():
     stations = build_station_list()
     mtest = stations_by_river(stations)
-    ptest = mtest.keys()
+    ptest = (mtest.keys())
     assert ptest[0] in rivers_with_station(stations)
 
 
