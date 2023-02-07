@@ -9,7 +9,7 @@ from floodsystem.geo import stations_by_river
 def test_station_by_distance():
     stations = build_station_list()
 
-    ntest = station_by_distance(stations)
+    ntest = station_by_distance(stations,(0.0,0.0))
     assert ntest[0][1] < ntest[1][1]
 
 def test_stations_within_radius():
@@ -19,12 +19,13 @@ def test_stations_within_radius():
 
 def test_rivers_with_station():
     stations = build_station_list()
-    assert len(rivers_with_station(stations)) < len(stations(stations))
+    assert len(rivers_with_station(stations)) < len((stations))
 
 def test_stations_by_river():
     stations = build_station_list()
     mtest = stations_by_river(stations)
-    assert mtest.keys()[0] in rivers_with_station(stations)
+    ptest = mtest.keys
+    assert ptest[0] in rivers_with_station(stations)
 
 
 
