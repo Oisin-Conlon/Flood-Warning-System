@@ -4,7 +4,7 @@ from floodsystem.geo import stations_within_radius
 from floodsystem.geo import rivers_with_station
 from floodsystem.geo import stations_by_river
 
-#all tests for A-D
+# all tests for A-D
 
 def test_station_by_distance():
     stations = build_station_list()
