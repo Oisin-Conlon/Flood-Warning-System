@@ -20,6 +20,7 @@ def test_rivers_with_station():
     assert len(rivers_with_station(stations)) < len(stations(stations))
 
 def test_stations_by_river():
+    stations = build_station_list()
     mtest = stations_by_river(stations)
     assert mtest.keys()[0] in rivers_with_station(stations)
 
