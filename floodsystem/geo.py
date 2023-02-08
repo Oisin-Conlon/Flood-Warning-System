@@ -44,3 +44,17 @@ def stations_by_river(stations):
     for station in stations:
         whichstations[station.river].append(station.name)
     return(whichstations)
+
+def rivers_by_station_number(stations, N):
+    dictionary = stations_by_river(stations)
+
+    for a in dictionary:
+        dictionary[a] = len(dictionary[a])
+
+    swapped = {v:k for k, v in dictionary.items()}
+
+    swapped.sort(reverse = True)
+
+    swap_back = {v:k for k, v in swapped.items()}
+
+    print (swap_back.items()[:N])
