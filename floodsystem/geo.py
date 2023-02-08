@@ -5,9 +5,11 @@
 geographical data.
 
 """
-from floodsystem.utils import sorted_by_key  # noqa
+from floodsystem.utils import sorted_by_key
+
 from haversine import haversine, Unit
 def station_by_distance(stations, p):
+    '''Calculates the distance from a point p and sorts them in descending proximity'''
     output = []
     for n in stations:
         s = (n,haversine(n.coord,p))
@@ -15,3 +17,30 @@ def station_by_distance(stations, p):
     output = sorted_by_key(output,1)  
     return(output)
 
+def stations_within_radius(stations, centre, r):
+    '''Compiles a list of stations a distance r from a specified centre'''
+    output = []
+    radii = []
+    for n in stations:
+        if haversine(n.coord, centre) <= float(r):
+            radii.append(n)
+    return(radii)        
+            
+
+def rivers_with_station(stations):
+    rivers = []
+    for n in stations:
+        if n.river not in rivers:
+            rivers.append(n.river)
+    return(rivers)
+
+def stations_by_river(stations):
+    whichstations = {}
+    rivers = rivers_with_station(stations)
+    for n in rivers:
+        
+        whichstations[n] = []
+
+    for station in stations:
+        whichstations[station.river].append(station.name)
+    return(whichstations)
