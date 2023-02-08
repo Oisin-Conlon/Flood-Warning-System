@@ -48,13 +48,18 @@ def stations_by_river(stations):
 def rivers_by_station_number(stations, N):
     dictionary = stations_by_river(stations)
 
-    for a in dictionary:
-        dictionary[a] = len(dictionary[a])
+    list = []
 
-    swapped = {v:k for k, v in dictionary.items()}
+    for river in dictionary:
+        list += [[len(dictionary[river]),river]]
 
-    swapped.sort(reverse = True)
+    list.sort(reverse = True)
 
-    swap_back = {v:k for k, v in swapped.items()}
-
-    print (swap_back.items()[:N])
+    for a in range(len(list)):
+            temp = list[a][0]
+            list[a][0] = list[a][1]
+            list[a][1] = temp
+    
+    list_of_tuples = [tuple(x) for x in list]
+    
+    print (list_of_tuples[:N])
