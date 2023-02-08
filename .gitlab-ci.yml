@@ -12,6 +12,8 @@ test:
     # Run unit tests
   - python -m pytest -v .
   - python pytest test_for_functions_A-D.py
+  - python pytest test_e.py
+
 
   # Run deliverables. Add your deliverables to the test system here.
   - python Task1A.py
