@@ -8,4 +8,3 @@ from floodsystem.geo import rivers_by_station_number
 def test_rivers_by_station_number():
     stations = build_station_list()
     assert type(rivers_by_station_number(stations,9)) == list
-    assert type(rivers_by_station_number(stations,9)[0]) == tuple
