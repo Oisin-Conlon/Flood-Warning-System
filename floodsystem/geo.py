@@ -62,4 +62,4 @@ def rivers_by_station_number(stations, N):
     
     list_of_tuples = [tuple(x) for x in list]
     
-    print (list_of_tuples[:N])
+    return (list_of_tuples[:N])
