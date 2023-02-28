@@ -39,7 +39,7 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
 
-def typical_range_consistent(self):
+    def typical_range_consistent(self):
         if self.typical_range == None:
             return False
         elif self.typical_range[0] > self.typical_range[1]:
@@ -47,12 +47,22 @@ def typical_range_consistent(self):
         else:
             return True
 
+    def relative_water_level(self):
+
+        if not self.typical_range_consistent():
+            return None 
+        
+        elif self.latest_level != None:
+
+            #print(self.latest_level, self.typical_range[0], self.typical_range[1])
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+
 
 def inconsistent_typical_range_stations(stations):
-    
+        
     inconsistent_stations = []
     for station in stations:
-        if MonitoringStation.typical_range_consistent(station) == False:
+        if not station.typical_range_consistent():
             inconsistent_stations.append(station)
         
     return inconsistent_stations
