@@ -14,7 +14,7 @@ def stations_level_over_threshold(stations, p):
             if station.relative_water_level() != None and station.relative_water_level() >= p:
 
                 names.append((station.name, station.relative_water_level()))
-                #print((station.name, station.relative_water_level()))
+                
     return(names)
 
 print(stations_level_over_threshold(stations, 0.8))
