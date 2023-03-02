@@ -1,6 +1,6 @@
 from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
-from floodsystem.utils import sorted_by_key
+from utils import sorted_by_key
 from floodsystem.station import inconsistent_typical_range_stations
 
 stations = build_station_list()
