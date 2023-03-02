@@ -39,7 +39,7 @@ def test_stations_level_over_threshold():
     stations = build_station_list()
     update_water_levels(stations)
     teststations = stations_level_over_threshold(stations, 0.8)
-    assert teststations[0][1] < 0.8
+    assert teststations[0][1] > 0.8
 
 
 
